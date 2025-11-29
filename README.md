@@ -29,3 +29,6 @@
 
 <a id="phases"></a>
 # Phases
+# WBS détails
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.pdf) | [📰 Markdown](hhttps://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.md) |
+|---|---|
