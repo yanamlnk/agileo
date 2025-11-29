@@ -235,52 +235,52 @@
 
 ---
 
-# 7. Développement IA/NLP
+# 7. Base de données & stockage
 
-## 7.1 Préparation données
+## 7.1 Base de données
 
-* 7.1.1 Collecte audio
-* 7.1.2 Normalisation
-* 7.1.3 Dataset d’US
+* 7.1.1 Choix BD
+* 7.1.2 Schéma : utilisateurs, transcriptions, US générées, jetons Trello, logs
+* 7.1.3 Sauvegarde & restauration
 
-## 7.2 Transcription audio
+## 7.2 Stockage
 
-* 7.2.1 Configuration Whisper
-* 7.2.2 Benchmark
-* 7.2.3 Filtres anti-bruit
-* 7.2.4 Cache audio
-* 7.2.5 Ajustements précision
-
-## 7.3 NLP
-
-* 7.3.1 Extraction d’entités
-* 7.3.2 Segmentation
-* 7.3.3 Détection d’intentions
-* 7.3.4 Détection de priorité
-
-## 7.4 Génération US
-
-* 7.4.1 Templates
-* 7.4.2 LLM
-* 7.4.3 Système hybride
-* 7.4.4 Suppression doublons
-* 7.4.5 Optimisation
+* 7.2.1 Stockage audio
+* 7.2.2 Cache IA
+* 7.2.3 Nettoyage
 
 ---
 
-# 8. Base de données & stockage
+# 8. Développement IA/NLP
 
-## 8.1 Base de données
+## 8.1 Préparation données
 
-* 8.1.1 Choix BD
-* 8.1.2 Schéma : utilisateurs, transcriptions, US générées, jetons Trello, logs
-* 8.1.3 Sauvegarde & restauration
+* 8.1.1 Collecte audio
+* 8.1.2 Normalisation
+* 8.1.3 Dataset d’US
 
-## 8.2 Stockage
+## 8.2 Transcription audio
 
-* 8.2.1 Stockage audio
-* 8.2.2 Cache IA
-* 8.2.3 Nettoyage
+* 8.2.1 Configuration Whisper
+* 8.2.2 Benchmark
+* 8.2.3 Filtres anti-bruit
+* 8.2.4 Cache audio
+* 8.2.5 Ajustements précision
+
+## 8.3 NLP
+
+* 8.3.1 Extraction d’entités
+* 8.3.2 Segmentation
+* 8.3.3 Détection d’intentions
+* 8.3.4 Détection de priorité
+
+## 8.4 Génération US
+
+* 8.4.1 Templates
+* 8.4.2 LLM
+* 8.4.3 Système hybride
+* 8.4.4 Suppression doublons
+* 8.4.5 Optimisation
 
 ---
 

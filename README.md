@@ -18,6 +18,8 @@
 
 <a id="wbs-details"></a>
 # WBS détails
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.pdf) | [📰 Markdown](hhttps://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.md) |
+|---|---|
 
 <a id="video"></a>
 # Vidéo
