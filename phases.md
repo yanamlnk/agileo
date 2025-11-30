@@ -8,7 +8,7 @@
 4. [Résumé simple des 3 phases](#résumé-simple-des-3-phases)
 
 
-## ** Phase 1 – MVP “Texte” (Mois 1 à 6)**
+## Phase 1 – MVP “Texte” (Mois 1 à 6)
 
 **Objectif principal :** construire un premier assistant fonctionnel basé uniquement sur *du texte*, afin de valider le concept et les briques essentielles.
 
@@ -38,7 +38,7 @@ Valider le **cœur du projet** :
 
 ---
 
-## ** Phase 2 – MVP “Fichier Audio” (Mois 7 à 12)**
+## Phase 2 – MVP “Fichier Audio” (Mois 7 à 12)
 
 **Objectif principal :** étendre le MVP pour accepter des fichiers audio et générer les user stories à partir de transcriptions.
 
@@ -78,7 +78,7 @@ C’est la première version qui reflète la vision finale du produit.
 
 ---
 
-## ** Phase 3 – Polissage “Temps Réel” & UX (Mois 13 à 18)**
+## Phase 3 – Polissage “Temps Réel” & UX (Mois 13 à 18)
 
 **Objectif principal :** atteindre une expérience fluide, professionnelle, proche d’un outil commercial.
 
@@ -114,7 +114,7 @@ C’est la version qui doit convaincre les étudiants votants et les encadrants.
 
 ---
 
-# **Résumé simple des 3 phases**
+# Résumé simple des 3 phases
 
 | Phase                    | Durée      | Focus                            | Pourquoi elle est clé                      |
 | ------------------------ | ---------- | -------------------------------- | ------------------------------------------ |
