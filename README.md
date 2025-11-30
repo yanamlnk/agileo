@@ -18,7 +18,7 @@
 
 <a id="wbs-details"></a>
 # WBS détails
-| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.pdf) | [📰 Markdown](hhttps://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.md) |
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.md) |
 |---|---|
 
 <a id="video"></a>
@@ -29,6 +29,5 @@
 
 <a id="phases"></a>
 # Phases
-# WBS détails
-| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.pdf) | [📰 Markdown](hhttps://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.md) |
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.md) |
 |---|---|
