@@ -10,10 +10,10 @@
     :root{
       --bg: #2c2d30;
       --text: #f4f5fb;
-      --muted: #a3a8b5;
+      --muted: #babec8;
       --accent-pink: #ef94ca;
       --accent-mint: #5fecc7;
-      --accent-blue: #91bbd9;
+      --accent-blue: #84d2e4;
       --card-bg: rgba(255,255,255,0.02);
       --card-border: rgba(255,255,255,0.06);
       --primary: #ef94ca;
@@ -89,8 +89,27 @@
 
     /* HERO */
     .hero{
+      position:relative;
       text-align:center;
-      padding:3rem 0 3.5rem;
+      padding:2.5rem 1.5rem 3rem;
+      border-radius:24px; 
+      background: var(--card-bg);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+      margin: 0 0 2rem;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:24px;
+      padding:3px;
+      background: linear-gradient(80deg, var(--accent-pink), var(--accent-blue));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events:none;
+      z-index:-1;
     }
     .hero-tag{
       font-size:0.75rem;
@@ -113,7 +132,7 @@
     .hero-subtitle{
       max-width:640px;
       margin:0 auto;
-      font-size:1rem;
+      font-size:16px;
       color:var(--muted);
     }
     .hero-actions{
@@ -299,7 +318,9 @@
         Du <span class="gradient">Chaos</span> à la <span class="gradient">Clarté</span>
       </h1>
       <p class="hero-subtitle">
-        Agiléo écoute vos réunions, analyse texte ou audio et génère instantanément des user stories pertinentes, entièrement intégrées à Trello. Place à une gestion de projet fluide, moderne, automatisée.
+        Transformez chaque discussion en actions concrètes ! <br><br>
+        Notre assistant de gestion de projet <span style="color:var(--accent-blue);font-weight:600">écoute vos réunions</span>, <span style="color:var(--accent-mint);font-weight:600">analyse texte ou audio</span> et <span style="color:var(--accent-pink);font-weight:600">génère instantanément des user stories pertinentes</span>, entièrement <span style="color:var(--accent-blue);font-weight:600">intégrées à Trello</span>. <br><br>
+        Fini les tâches oubliées : vos idées spontanées deviennent des tâches organisées, claires et prêtes à être développées.
       </p>
       <div class="hero-actions">
         <a href="#vote" class="btn-primary">Votez pour ce projet</a>
