@@ -207,7 +207,7 @@
     }
     .section-title{
       text-align:center;
-      font-size:1.8rem;
+      font-size:2.5rem;
       margin-bottom:1rem;
     }
     .section-title strong{
@@ -252,7 +252,86 @@
       font-size:0.95rem;
     }
 
-        /* SECTION PROBLÈME */
+        /* Cartes des modes */
+
+    .mode-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mode-label{
+      display:inline-block;
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+      margin-bottom:0.4rem;
+      padding:0.25rem 0.7rem;
+      border-radius:999px;
+      background:rgba(255,255,255,0.05);
+      color:var(--muted);
+    }
+    .mode-label--pink{
+      color:var(--accent-pink);
+      background:rgba(239,148,202,0.12);
+    }
+    .mode-label--blue{
+      color:var(--accent-blue);
+      background:rgba(132,210,228,0.12);
+    }
+
+    .card-icon{
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:0.7rem;
+      background:rgba(255,255,255,0.04);
+    }
+
+    .card-icon svg{
+      width:18px;
+      height:18px;
+      color:inherit; /* la couleur vient des classes ci-dessous */
+    }
+
+    .card-icon--pink{
+      background:rgba(239,148,202,0.14);
+      color:var(--accent-pink);
+    }
+    .card-icon--blue{
+      background:rgba(132,210,228,0.14);
+      color:var(--accent-blue);
+    }
+
+    /* Hover coloré par mode */
+    .mode-card--prompt:hover{
+      border-color:rgba(239,148,202,0.75);
+      box-shadow:0 22px 60px rgba(239,148,202,0.35);
+    }
+    .mode-card--prompt:hover .card-icon--pink{
+      background:var(--accent-pink);
+      color:#1e1f23;
+    }
+
+    .mode-card--meeting:hover{
+      border-color:rgba(132,210,228,0.75);
+      box-shadow:0 22px 60px rgba(132,210,228,0.35);
+    }
+    .mode-card--meeting:hover .card-icon--blue{
+      background:var(--accent-blue);
+      color:#1e1f23;
+    }
+
+    /* Logo inline dans un paragraphe */
+    .inline-logo img{
+      height:18px;
+      vertical-align:middle;
+      margin-right:0.35rem;
+    }
+
+    /* SECTION PROBLÈME */
     .problem-section {
       margin-top: 2.5rem;
     }
@@ -531,16 +610,27 @@
     <!-- NOTRE SOLUTION -->
     <section class="section" id="features">
       <div class="section-label">Notre solution</div>
-      <h2 class="section-title">L’outil agile qui rédige pour vous</h2>
+      <h2 class="section-title">L’outil <span class="gradient">agile</span> qui rédige pour vous</h2>
       <p class="section-intro">
-        Agiléo est la solution innovante qui transforme vos discussions et idées en
+        <span class="inline-logo">
+          <img src="logo.png" alt="Agiléo">
+        </span>
+        est la solution innovante qui transforme vos discussions et idées en
         user stories claires et exploitables, vous permettant de vous concentrer sur
-        ce qui compte vraiment : le développement de votre projet.
+        ce qui compte vraiment&nbsp;: le développement de votre projet.
       </p>
 
       <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">📝</div>
+        <!-- MODE 1 -->
+        <div class="card mode-card mode-card--prompt">
+          <div class="mode-label mode-label--pink">Mode 1</div>
+          <div class="card-icon card-icon--pink">
+            <!-- Icône document / stylo -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.41l-4.83-4.83A2 2 0 0 0 14.17 3H5Zm0 2h9v4a1 1 0 0 0 1 1h4v9H5V5Zm12 2.41L18.59 9H17V7.41Z"/>
+            </svg>
+          </div>
           <h3>Génération via un prompt</h3>
           <p>
             Décrivez simplement votre besoin ou collez vos notes.
@@ -548,13 +638,22 @@
             prêtes à être intégrées dans votre backlog.
           </p>
         </div>
-        <div class="card">
-          <div class="card-icon">🎧</div>
+
+        <!-- MODE 2 -->
+        <div class="card mode-card mode-card--meeting">
+          <div class="mode-label mode-label--blue">Mode 2</div>
+          <div class="card-icon card-icon--blue">
+            <!-- Icône casque audio -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 3a7 7 0 0 0-7 7v2a3 3 0 0 0-2 2.82V18a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H5v-3a7 7 0 0 1 14 0v3h-2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a3 3 0 0 0 3-3v-3.18A3 3 0 0 0 19 12v-2a7 7 0 0 0-7-7Z"/>
+            </svg>
+          </div>
           <h3>Création à partir d’une réunion</h3>
           <p>
-            Connectez Agiléo à vos réunions. L’outil écoute, retranscrit
-            et identifie les points clés pour créer automatiquement les user stories correspondantes,
-            sans aucune intervention manuelle.
+            Lancez l’écoute pendant votre réunion&nbsp;: l’outil retranscrit,
+            identifie les points clés et crée automatiquement les user stories
+            correspondantes, sans aucune intervention manuelle.
           </p>
         </div>
       </div>
