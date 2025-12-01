@@ -133,7 +133,7 @@
     .hero-title{
       position:relative;
       z-index:1;
-      font-size: clamp(2.3rem, 4vw, 3rem);
+      font-size: clamp(2.3rem, 4.5vw, 5rem);
       font-weight:700;
       margin-bottom:1rem;
     }
@@ -252,6 +252,68 @@
       font-size:0.95rem;
     }
 
+        /* SECTION PROBLÈME */
+    .problem-section {
+      margin-top: 2.5rem;
+    }
+
+    .problem-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1.5rem;
+      margin-top:1.6rem;
+    }
+
+    .problem-card{
+      position:relative;
+      border-radius:18px;
+      padding:1.5rem 1.6rem;
+      color:#fdfcff;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      overflow:hidden;
+    }
+
+    /* Variantes de dégradés pour chaque carte */
+    .problem-card--team{
+      background:linear-gradient(135deg,#ef94ca 0%,#84d2e4 60%,#5fecc7 100%);
+    }
+    .problem-card--solo{
+      background:linear-gradient(135deg,#84d2e4 0%,#5fecc7 55%,#ef94ca 100%);
+    }
+    .problem-card--pm{
+      background:linear-gradient(135deg,#5fecc7 0%,#ef94ca 50%,#84d2e4 100%);
+    }
+    .problem-card--student{
+      background:linear-gradient(135deg,#ef94ca 0%,#ffb5e4 45%,#84d2e4 100%);
+    }
+
+    .problem-card h3{
+      margin-bottom:0.5rem;
+      font-size:1.05rem;
+    }
+
+    .problem-card p{
+      font-size:0.95rem;
+      color:rgba(249,250,252,0.9);
+    }
+
+    .problem-icon{
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      background:rgba(5,10,20,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1rem;
+    }
+
+    .problem-icon svg{
+      width:18px;
+      height:18px;
+      color:#ffffff;     /* tu peux changer la couleur ici */
+    }
+
     /* GRID POUR FEATURES */
     .grid-2{
       display:grid;
@@ -315,6 +377,32 @@
         padding-top:2.5rem;
       }
     }
+
+        @media (max-width:900px){
+      .grid-2,
+      .grid-3,
+      .problem-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0.75rem;
+      }
+      .nav-links{
+        gap:1rem;
+      }
+      .hero{
+        padding-top:2.5rem;
+      }
+      .problem-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -337,12 +425,100 @@
       </h1>
       <p class="hero-subtitle">
         Transformez chaque discussion en actions concrètes ! <br><br>
-        Notre assistant de gestion de projet <span style="color:var(--accent-blue);font-weight:600">écoute vos réunions</span>, <span style="color:var(--accent-blue);font-weight:600">analyse texte ou audio</span> et <span style="color:var(--accent-blue);font-weight:600">génère instantanément des user stories pertinentes</span>, entièrement <span style="color:var(--accent-blue);font-weight:600">intégrées à Trello</span>. <br><br>
+        Notre assistant de gestion de projet <span style="color:var(--accent-blue);font-weight:600">écoute vos réunions</span>, <span style="color:var(--accent-mint);font-weight:600">analyse texte ou audio</span> et <span style="color:var(--accent-mint);font-weight:600">génère instantanément des user stories pertinentes</span>, entièrement <span style="color:var(--accent-blue);font-weight:600">intégrées à Trello</span>. <br><br>
         Fini les tâches oubliées : vos idées spontanées deviennent des tâches organisées, claires et prêtes à être développées.
       </p>
       <div class="hero-actions">
         <a href="#vote" class="btn-primary">Votez pour ce projet</a>
         <a href="#features" class="btn-secondary">En savoir plus →</a>
+      </div>
+    </section>
+
+        <!-- LE PROBLÈME -->
+    <section class="section problem-section">
+      <div class="section-label">Le problème</div>
+      <h2 class="section-title">
+        Des réunions riches… <span class="gradient">des tâches perdues</span>
+      </h2>
+      <p class="section-intro">
+        En gestion de projet, tout commence souvent par une bonne discussion&nbsp;:
+        les idées fusent, les décisions se prennent “à l’oral”, les détails
+        fonctionnels sont validés rapidement. Puis la réunion se termine…
+        et une partie de ces décisions disparaît.
+      </p>
+      <p class="section-intro" style="margin-top:2rem;">
+        Résultat&nbsp;: <strong>perte de temps, manque de clarté et frustration</strong>
+        pour toute l’équipe… alors que les informations ont déjà été dites une première fois.
+      </p>
+
+      <div class="problem-grid">
+        <!-- Carte 1 : équipe projet -->
+        <article class="problem-card problem-card--team">
+          <div class="problem-icon">
+            <!-- Icône “users” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M16 11a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm-8 0a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm0 2c-2.67 0-8 1.34-8 4v1a1 1 0 0 0 1 1h7.26A5.7 5.7 0 0 1 8 17.5a5.48 5.48 0 0 1 1.29-3.55A9.78 9.78 0 0 0 8 13Zm8 0a4.5 4.5 0 0 0-4.5 4.5 5.5 5.5 0 0 0 .12 1.17A1 1 0 0 0 18 19h5a1 1 0 0 0 1-1v-.5C24 14.34 18.67 13 16 13Z"/>
+            </svg>
+          </div>
+          <h3>Pour les équipes projet</h3>
+          <p>
+            Après chaque réunion, personne n’a le temps de tout consigner.
+            Certaines décisions restent dans la tête des participants et les
+            user stories ne sont jamais créées dans le backlog.
+          </p>
+        </article>
+
+        <!-- Carte 2 : chef de projet / PO -->
+        <article class="problem-card problem-card--pm">
+          <div class="problem-icon">
+            <!-- Icône “clipboard / check” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M9 2a2 2 0 0 0-2 2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2-2H9Zm0 2h6v2H9V4Zm1.7 9.3 1.3 1.29 3.3-3.29a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 1.4-1.42Z"/>
+            </svg>
+          </div>
+          <h3>Pour le chef de projet / PO</h3>
+          <p>
+            Il passe ses soirées à reconstituer le fil des réunions, à relire des
+            notes partielles et à deviner ce qui a été décidé pour alimenter le
+            backlog correctement.
+          </p>
+        </article>
+
+        <!-- Carte 3 : solo / freelance -->
+        <article class="problem-card problem-card--solo">
+          <div class="problem-icon">
+            <!-- Icône “user / focus” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 2a5 5 0 1 1-5 5 5.006 5.006 0 0 1 5-5Zm0 8a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm0 2c-3.33 0-8 1.67-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.33-4.67-5-8-5Z"/>
+            </svg>
+          </div>
+          <h3>Pour les freelances et solo</h3>
+          <p>
+            Les idées arrivent en plein call ou entre deux tâches. Elles sont
+            notées dans plusieurs outils ou pas du tout, et certaines opportunités
+            disparaissent simplement faute de suivi.
+          </p>
+        </article>
+
+        <!-- Carte 4 : projets étudiants -->
+        <article class="problem-card problem-card--student">
+          <div class="problem-icon">
+            <!-- Icône “graduation / project” simplifiée -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 3 2 8l10 5 9-4.5V17h1v-9L12 3Zm0 8.2L4.15 8 12 4.8 19.85 8 12 11.2ZM5 12.5v3.75C5 18.55 8.13 20 12 20s7-1.45 7-3.75V12.5l-7 3.5-7-3.5Z"/>
+            </svg>
+          </div>
+          <h3>Pour les projets étudiants</h3>
+          <p>
+            En réunion de groupe, tout le monde parle, les idées fusent… mais
+            personne n’est vraiment responsable de la prise de notes. La moitié des
+            tâches disparaît avant même d’être créée.
+          </p>
+        </article>
       </div>
     </section>
 
