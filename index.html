@@ -10,13 +10,13 @@
     :root{
       --bg: #2c2d30;
       --text: #f4f5fb;
-      --muted: #a3a8b5;
+      --muted: #babec8;
       --accent-pink: #ef94ca;
       --accent-mint: #5fecc7;
-      --accent-blue: #79c7ff;
+      --accent-blue: #84d2e4;
       --card-bg: rgba(255,255,255,0.02);
       --card-border: rgba(255,255,255,0.06);
-      --primary: #ff4fa2;
+      --primary: #ef94ca;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
@@ -49,14 +49,13 @@
     .nav-left{
       display:flex;
       align-items:center;
-      gap:0.75rem;
+      gap:0.8rem;
     }
     .logo{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      object-fit:cover;
-      background:#111;
+      height: clamp(45px, 6vw, 90px);
+      width: auto; 
+      display: block;
+      object-fit: contain;
     }
     .brand-name{
       font-weight:700;
@@ -69,6 +68,7 @@
       gap:1.5rem;
       font-size:0.9rem;
       color:var(--muted);
+      flex-wrap:wrap;
     }
     .nav-links a{
       position:relative;
@@ -81,7 +81,7 @@
       width:0;
       height:2px;
       border-radius:999px;
-      background:linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));
       transition:width .2s ease;
     }
     .nav-links a:hover::after{
@@ -90,10 +90,41 @@
 
     /* HERO */
     .hero{
+      position:relative;
       text-align:center;
-      padding:3rem 0 3.5rem;
+      padding:2.5rem 1.5rem 3rem;
+      border-radius:24px; 
+      background: var(--card-bg);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+      margin: 0 0 2rem;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-3px;
+      border-radius:24px;
+      padding:3px;
+      background: linear-gradient(80deg, var(--accent-pink), var(--accent-blue));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events:none;
+      z-index:-1;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:24px;
+      background: url('background.png') center/cover no-repeat;
+      opacity: 0.2;
+      pointer-events:none;
+      z-index:0;
     }
     .hero-tag{
+      position:relative;
+      z-index:1;
       font-size:0.75rem;
       letter-spacing:0.16em;
       text-transform:uppercase;
@@ -101,23 +132,29 @@
       margin-bottom:1rem;
     }
     .hero-title{
-      font-size: clamp(2.3rem, 4vw, 3rem);
+      position:relative;
+      z-index:1;
+      font-size: clamp(2.3rem, 4.5vw, 5rem);
       font-weight:700;
       margin-bottom:1rem;
     }
     .hero-title span.gradient{
-      background: linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      background: linear-gradient(80deg,var(--accent-pink),var(--accent-blue));
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
     }
     .hero-subtitle{
+      position:relative;
+      z-index:1;
       max-width:640px;
       margin:0 auto;
-      font-size:1rem;
+      font-size:16px;
       color:var(--muted);
     }
     .hero-actions{
+      position:relative;
+      z-index:1;
       margin-top:2rem;
       display:flex;
       justify-content:center;
@@ -171,14 +208,14 @@
     }
     .section-title{
       text-align:center;
-      font-size:1.8rem;
+      font-size:2.5rem;
       margin-bottom:1rem;
     }
     .section-title strong{
       font-weight:700;
     }
     .section-title span.gradient{
-      background: linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      background: linear-gradient(80deg,var(--accent-pink),var(--accent-blue));
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -193,6 +230,7 @@
 
     /* CARDS GÉNÉRALES */
     .card{
+      position:relative;
       background: var(--card-bg);
       border:1px solid var(--card-border);
       border-radius:18px;
@@ -202,10 +240,29 @@
       -webkit-backdrop-filter: blur(14px);
       transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
     }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:18px;
+      padding:1px;
+      background: linear-gradient(80deg, var(--accent-pink), var(--accent-blue));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      pointer-events:none;
+      opacity:0;
+      transition:opacity .3s ease;
+      z-index:-1;
+    }
     .card:hover{
       transform:translateY(-4px);
       box-shadow:0 26px 60px rgba(0,0,0,0.7);
       border-color:rgba(255,255,255,0.18);
+    }
+    .card:hover::before{
+      opacity:1;
     }
     .card h3{
       margin-bottom:0.6rem;
@@ -214,6 +271,194 @@
     .card p{
       color:var(--muted);
       font-size:0.95rem;
+    }
+
+        /* Cartes des modes */
+
+    .mode-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .mode-card-header{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      margin-bottom:1rem;
+    }
+
+    .mode-card-text{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      flex:1;
+    }
+
+    .mode-card h3{
+      margin-bottom:0;
+      font-size:1.1rem;
+      line-height:1.3;
+    }
+
+    .mode-card h3 .mode-number{
+      font-weight:700;
+      display:block;
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      margin-bottom:0.2rem;
+    }
+
+    .mode-number--pink{
+      color:var(--accent-pink);
+    }
+
+    .mode-number--blue{
+      color:var(--accent-blue);
+    }
+
+    .mode-card-icon{
+      width:56px;
+      height:56px;
+      min-width:56px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .mode-card-icon svg{
+      width:28px;
+      height:28px;
+      color:inherit;
+    }
+
+    .mode-card-icon--pink{
+      background:rgba(239,148,202,0.14);
+      color:var(--accent-pink);
+    }
+    .mode-card-icon--blue{
+      background:rgba(132,210,228,0.14);
+      color:var(--accent-blue);
+    }
+
+    .card-icon{
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.1rem;
+      margin-bottom:0.6rem;
+    }
+
+    .card-icon svg{
+      width:18px;
+      height:18px;
+      color:#ffffff;
+    }
+
+    /* Gradient variants for card icons */
+    .card-icon--gradient-1{
+      background:linear-gradient(135deg, #ef94cbcf, #84d2e4d0, #5fecc6c9);
+    }
+    
+    .card-icon--gradient-2{
+      background:linear-gradient(135deg, #84d2e4d0, #5fecc6c9, #ef94cbcf);
+    }
+    
+    .card-icon--gradient-3{
+      background:linear-gradient(135deg, #5fecc6c9, #ef94cbcf, #84d2e4d0);
+    }
+
+    /* Hover coloré par mode */
+    .mode-card--prompt:hover{
+      border-color:rgba(239,148,202,0.75);
+      box-shadow:0 8px 15px rgba(239,148,202,0.35);
+      transform:translateY(-4px);
+    }
+    .mode-card--prompt:hover .card-icon--pink{
+      background:var(--accent-pink);
+      color:#1e1f23;
+    }
+
+    .mode-card--meeting:hover{
+      border-color:rgba(132,210,228,0.75);
+      box-shadow:0 8px 15px rgba(132,210,228,0.35);
+      transform:translateY(-4px);
+    }
+    .mode-card--meeting:hover .card-icon--blue{
+      background:var(--accent-blue);
+      color:#1e1f23;
+    }
+
+    /* SECTION PROBLÈME */
+    .problem-section {
+      margin-top: 2.5rem;
+    }
+
+    .problem-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.5rem;
+      margin-top:1.6rem;
+    }
+
+    .problem-card{
+      position:relative;
+      border-radius:18px;
+      padding:1.5rem 1.6rem;
+      color:#fdfcff;
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .2s ease;
+    }
+
+    .problem-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+    }
+
+    /* Variantes de dégradés pour chaque carte */
+    .problem-card--team{
+      background:linear-gradient(135deg,#ef94cbcf 0%,#84d2e4d0 60%,#5fecc6c9 100%);
+    }
+    .problem-card--solo{
+      background:linear-gradient(135deg,#84d2e4d0 0%,#5fecc6c9 55%,#ef94cbcf 100%);
+    }
+    .problem-card--pm{
+      background:linear-gradient(135deg,#5fecc6c9 0%,#ef94cbcf 50%,#84d2e4d0 100%);
+    }
+    .problem-card--student{
+      background:linear-gradient(135deg,#ef94cbcf 0%,#84d2e4d0 45%,#5fecc6c9 100%);
+    }
+
+    .problem-card h3{
+      margin-bottom:0.5rem;
+      font-size:1.05rem;
+    }
+
+    .problem-card p{
+      font-size:0.95rem;
+      color:rgba(249,250,252,0.9);
+    }
+
+    .problem-icon{
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      background:rgba(5,10,20,0.4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:1rem;
+    }
+
+    .problem-icon svg{
+      width:18px;
+      height:18px;
+      color:#ffffff;     /* tu peux changer la couleur ici */
     }
 
     /* GRID POUR FEATURES */
@@ -228,21 +473,197 @@
       gap:1.5rem;
     }
 
-    .card-icon{
-      width:34px;
-      height:34px;
+    /* LISTES */
+    ul{padding-left:1.1rem;margin-top:0.4rem}
+    li{margin-bottom:0.35rem;color:var(--muted);font-size:0.95rem;}
+
+    /* VIDEO CONTAINER */
+    .video-container{
+      position:relative;
+      width:100%;
+      margin:2.5rem 0;
+      border-radius:18px;
+      overflow:hidden;
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .video-container:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+      border-color:rgba(255,255,255,0.18);
+    }
+    .video-container video{
+      width:100%;
+      height:auto;
+      display:block;
+      background:#000;
+    }
+
+        /* SECTION INNOVATION (comparatif) */
+    .innovation-section{
+      margin-top:3rem;
+    }
+
+    .innovation-section .section-label{
+      margin-bottom:0.8rem;
+    }
+
+    .innovation-section .section-title{
+      font-size:2.3rem;
+      margin-bottom:0.6rem;
+    }
+
+    .innovation-section .section-intro{
+      max-width:720px;
+    }
+
+    .innovation-grid{
+      margin-top:2.2rem;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.8rem;
+    }
+
+    .innovation-card{
+      position:relative;
+      border-radius:20px;
+      padding:1.8rem 2rem;
+      background:rgba(10,12,20,0.95);
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .innovation-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+      border-color:rgba(255,255,255,0.16);
+    }
+
+    .innovation-card h3{
+      font-size:1.2rem;
+      margin-bottom:0.8rem;
+    }
+
+    .innovation-card p{
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    /* Carte classiques */
+    .innovation-card--classic{
+      background:var(--card-bg);
+    }
+
+    /* Carte Agiléo avec bordure dégradée */
+    .innovation-card--agileo{
+      background:var(--card-bg);
+    }
+    .innovation-card--agileo::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius:22px;
+      padding:2px;
+      background:linear-gradient(100deg,var(--accent-pink),var(--accent-blue));
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask-composite:exclude;
+      opacity:0.9;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .innovation-card-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:0.5rem;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0.18rem 0.75rem;
+      border-radius:999px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .badge-innovant{
+      background:linear-gradient(100deg,var(--accent-pink),var(--accent-blue));
+      color:#050710;
+    }
+
+    /* Listes comparatives */
+    .innovation-list{
+      list-style:none;
+      padding:0;
+      margin-top:1.1rem;
+    }
+
+    .innovation-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:0.75rem;
+      margin-bottom:0.7rem;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    .innovation-list strong{
+      color:#f9fafb;
+      font-weight:600;
+    }
+
+    .innovation-bullet{
+      width:22px;
+      height:22px;
+      min-width:22px;
       border-radius:999px;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:1.1rem;
-      margin-bottom:0.6rem;
       background:rgba(255,255,255,0.06);
     }
 
-    /* LISTES */
-    ul{padding-left:1.1rem;margin-top:0.4rem}
-    li{margin-bottom:0.35rem;color:var(--muted);font-size:0.95rem;}
+    .innovation-bullet svg{
+      width:12px;
+      height:12px;
+      color:#fff;
+    }
+
+    .innovation-bullet--negative{
+      background:rgba(244,63,94,0.16);
+    }
+
+    .innovation-bullet--negative svg{
+      color:#fb7185;
+    }
+
+    .innovation-bullet--positive{
+      background:rgba(45,212,191,0.14);
+    }
+
+    .innovation-bullet--positive svg{
+      color:#34d399;
+    }
+
+    @media (max-width:900px){
+      .innovation-grid{
+        grid-template-columns:1fr;
+      }
+    }
 
     /* SECTION FOOTER / VOTE */
     .vote-card{
@@ -270,15 +691,47 @@
       .navbar{
         flex-direction:column;
         align-items:flex-start;
-        gap:0.75rem;
+        gap:1rem;
       }
       .nav-links{
+        width:100%;
+        justify-content:flex-start;
         gap:1rem;
+        font-size:0.85rem;
       }
       .hero{
         padding-top:2.5rem;
       }
     }
+
+    @media (max-width:900px){
+      .grid-3,
+      .problem-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:1rem;
+      }
+      .nav-links{
+        width:100%;
+        justify-content:flex-start;
+        gap:1rem;
+        font-size:0.85rem;
+      }
+      .hero{
+        padding-top:2.5rem;
+      }
+      .grid-2,
+      .problem-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -287,144 +740,387 @@
     <header class="navbar">
       <div class="nav-left">
         <img src="logo.png" alt="Logo Agiléo" class="logo">
-        <div>
-          <div class="brand-name">Agiléo</div>
-        </div>
       </div>
       <nav class="nav-links">
+        <a href="#solution">À propos</a>
         <a href="#features">Fonctionnalités</a>
-        <a href="#pricing">Tarifs</a>
-        <a href="#about">À propos</a>
+        <a href="#innovation">Pourquoi nous</a>
       </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-tag">Projet étudiant – Concept</div>
       <h1 class="hero-title">
         Du <span class="gradient">Chaos</span> à la <span class="gradient">Clarté</span>
       </h1>
       <p class="hero-subtitle">
-        Agiléo capture intelligemment les discussions de votre équipe et les
-        transforme en user stories parfaitement conçues. Arrêtez de prendre des notes,
-        commencez à construire.
+        Transformez chaque discussion en actions concrètes ! <br><br>
+        Notre assistant de gestion de projet <span style="color:var(--accent-blue);font-weight:600">écoute vos réunions</span>, <span style="color:var(--accent-mint);font-weight:600">analyse texte ou audio</span> et <span style="color:var(--accent-mint);font-weight:600">génère instantanément des user stories pertinentes</span>, entièrement <span style="color:var(--accent-blue);font-weight:600">intégrées à Trello</span>. <br><br>
+        Fini les tâches oubliées : vos idées spontanées deviennent des tâches organisées, claires et prêtes à être développées.
       </p>
       <div class="hero-actions">
-        <a href="#vote" class="btn-primary">👉 Votez pour ce projet</a>
-        <a href="#features" class="btn-secondary">En savoir plus →</a>
+        <a href="#features" class="btn-primary">En savoir plus →</a>
+      </div>
+    </section>
+
+        <!-- LE PROBLÈME -->
+    <section class="section problem-section">
+      <div class="section-label">Le problème</div>
+      <h2 class="section-title">
+        Des réunions riches… <span class="gradient">des tâches perdues</span>
+      </h2>
+      <p class="section-intro">
+        En gestion de projet, tout commence souvent par une bonne discussion&nbsp;:
+        les idées fusent, les décisions se prennent “à l’oral”, les détails
+        fonctionnels sont validés rapidement. Puis la réunion se termine…
+        et une partie de ces décisions disparaît.
+      </p>
+      <p class="section-intro" style="margin-top:2rem;">
+        Résultat&nbsp;: <strong>perte de temps, manque de clarté et frustration</strong>
+        pour toute l’équipe… alors que les informations ont déjà été dites une première fois.
+      </p>
+
+      <div class="problem-grid">
+        <!-- Carte 1 : équipe projet -->
+        <article class="problem-card problem-card--team">
+          <div class="problem-icon">
+            <!-- Icône “users” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M16 11a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm-8 0a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm0 2c-2.67 0-8 1.34-8 4v1a1 1 0 0 0 1 1h7.26A5.7 5.7 0 0 1 8 17.5a5.48 5.48 0 0 1 1.29-3.55A9.78 9.78 0 0 0 8 13Zm8 0a4.5 4.5 0 0 0-4.5 4.5 5.5 5.5 0 0 0 .12 1.17A1 1 0 0 0 18 19h5a1 1 0 0 0 1-1v-.5C24 14.34 18.67 13 16 13Z"/>
+            </svg>
+          </div>
+          <h3>Pour les équipes projet</h3>
+          <p>
+            Après chaque réunion, personne n’a le temps de tout consigner.
+            Certaines décisions restent dans la tête des participants et les
+            user stories ne sont jamais créées dans le backlog.
+          </p>
+        </article>
+
+        <!-- Carte 2 : chef de projet / PO -->
+        <article class="problem-card problem-card--pm">
+          <div class="problem-icon">
+            <!-- Icône “clipboard / check” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M9 2a2 2 0 0 0-2 2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2-2H9Zm0 2h6v2H9V4Zm1.7 9.3 1.3 1.29 3.3-3.29a1 1 0 0 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-2-2a1 1 0 0 1 1.4-1.42Z"/>
+            </svg>
+          </div>
+          <h3>Pour le chef de projet / PO</h3>
+          <p>
+            Il passe ses soirées à reconstituer le fil des réunions, à relire des
+            notes partielles et à deviner ce qui a été décidé pour alimenter le
+            backlog correctement.
+          </p>
+        </article>
+
+        <!-- Carte 3 : solo / freelance -->
+        <article class="problem-card problem-card--solo">
+          <div class="problem-icon">
+            <!-- Icône “user / focus” -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 2a5 5 0 1 1-5 5 5.006 5.006 0 0 1 5-5Zm0 8a3 3 0 1 0-3-3 3.003 3.003 0 0 0 3 3Zm0 2c-3.33 0-8 1.67-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.33-4.67-5-8-5Z"/>
+            </svg>
+          </div>
+          <h3>Pour les freelances et solo</h3>
+          <p>
+            Les idées arrivent en plein call ou entre deux tâches. Elles sont
+            notées dans plusieurs outils ou pas du tout, et certaines opportunités
+            disparaissent simplement faute de suivi.
+          </p>
+        </article>
+
+        <!-- Carte 4 : projets étudiants -->
+        <article class="problem-card problem-card--student">
+          <div class="problem-icon">
+            <!-- Icône “graduation / project” simplifiée -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 3 2 8l10 5 9-4.5V17h1v-9L12 3Zm0 8.2L4.15 8 12 4.8 19.85 8 12 11.2ZM5 12.5v3.75C5 18.55 8.13 20 12 20s7-1.45 7-3.75V12.5l-7 3.5-7-3.5Z"/>
+            </svg>
+          </div>
+          <h3>Pour les projets étudiants</h3>
+          <p>
+            En réunion de groupe, tout le monde parle, les idées fusent… mais
+            personne n’est vraiment responsable de la prise de notes. La moitié des
+            tâches disparaît avant même d’être créée.
+          </p>
+        </article>
       </div>
     </section>
 
     <!-- NOTRE SOLUTION -->
-    <section class="section" id="features">
+    <section class="section" id="solution">
       <div class="section-label">Notre solution</div>
-      <h2 class="section-title">L’outil agile qui rédige pour vous</h2>
+      <h2 class="section-title">L'outil <span class="gradient">agile</span> qui rédige pour vous</h2>
       <p class="section-intro">
-        Agiléo est la solution innovante qui transforme vos discussions et idées en
+        <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> est la solution innovante qui transforme vos discussions et idées en
         user stories claires et exploitables, vous permettant de vous concentrer sur
-        ce qui compte vraiment : le développement de votre projet.
+        ce qui compte vraiment&nbsp;: le développement de votre projet.
       </p>
 
+      <!-- VIDEO DEMO -->
+      <div class="video-container">
+        <video controls>
+          <source src="Agileo PM Github.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+      </div>
+
       <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">📝</div>
-          <h3>Génération via un prompt</h3>
+        <!-- MODE 1 -->
+        <div class="card mode-card mode-card--prompt">
+          <div class="mode-card-header">
+            <div class="mode-card-icon mode-card-icon--pink">
+              <!-- Icône document / stylo -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-3.06-5.53l-2.41 2.41-1.59-1.59a.996.996 0 1 0-1.41 1.41l2.29 2.29c.39.39 1.02.39 1.41 0l3.12-3.12a.996.996 0 1 0-1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="mode-card-text">
+              <h3>
+                <span class="mode-number mode-number--pink">MODE 1</span>
+                Génération via un prompt
+              </h3>
+            </div>
+          </div>
           <p>
             Décrivez simplement votre besoin ou collez vos notes.
             Notre IA analyse, structure et génère des user stories précises en quelques secondes,
             prêtes à être intégrées dans votre backlog.
           </p>
         </div>
-        <div class="card">
-          <div class="card-icon">🎧</div>
-          <h3>Création à partir d’une réunion</h3>
+
+        <!-- MODE 2 -->
+        <div class="card mode-card mode-card--meeting">
+          <div class="mode-card-header">
+            <div class="mode-card-icon mode-card-icon--blue">
+              <!-- Icône casque audio -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor"
+                  d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+              </svg>
+            </div>
+            <div class="mode-card-text">
+              <h3>
+                <span class="mode-number mode-number--blue">MODE 2</span>
+                Création à partir d'une réunion
+              </h3>
+            </div>
+          </div>
           <p>
-            Connectez Agiléo à vos réunions. L’outil écoute, retranscrit
-            et identifie les points clés pour créer automatiquement les user stories correspondantes,
-            sans aucune intervention manuelle.
+            Lancez l'écoute pendant votre réunion&nbsp;: l'outil retranscrit,
+            identifie les points clés et crée automatiquement les user stories
+            correspondantes, sans aucune intervention manuelle.
           </p>
         </div>
       </div>
     </section>
 
     <!-- FONCTIONNALITÉS CLÉS / GRID -->
-    <section class="section">
+    <section class="section" id="features">
       <div class="section-label">Fonctionnalités clés</div>
       <h2 class="section-title">
         De la discussion au <span class="gradient">backlog</span>
       </h2>
       <p class="section-intro">
-        Découvrez comment Agiléo transforme vos échanges en tâches prêtes à être développées.
+        Découvrez comment <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> transforme vos échanges en tâches prêtes à être développées.
       </p>
+      
+      <div style="text-align:center;margin:2rem 0;">
+        <a href="WBS_details.pdf" download class="btn-primary">
+          Télécharger le WBS complet
+        </a>
+      </div>
 
       <div class="grid-3">
         <div class="card">
-          <div class="card-icon">💬</div>
+          <div class="card-icon card-icon--gradient-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            </svg>
+          </div>
           <h3>Transcription en temps réel</h3>
           <p>Capture les discussions pendant vos réunions et les convertit en texte avec une grande précision.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🤖</div>
+          <div class="card-icon card-icon--gradient-2">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M20.084 10.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-16.168 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 3c.18 0 .358.01.532.026l.148.012A7.5 7.5 0 0 1 19.5 10.5v3a7.5 7.5 0 0 1-6.82 7.462l-.148.012A7.464 7.464 0 0 1 12 21a7.5 7.5 0 0 1-7.5-7.5v-3A7.5 7.5 0 0 1 12 3zm0 2a5.5 5.5 0 0 0-5.5 5.5v3a5.5 5.5 0 0 0 11 0v-3A5.5 5.5 0 0 0 12 5zm2 7a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h4zm-5-4a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm6 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+          </div>
           <h3>Analyse intelligente</h3>
           <p>Identifie les décisions, besoins et actions à partir du texte pour proposer des user stories pertinentes.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📄</div>
+          <div class="card-icon card-icon--gradient-3">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
+          </div>
           <h3>User stories structurées</h3>
-          <p>Génère des user stories au format agile (“En tant que… je veux… afin de…”) prêtes pour votre backlog.</p>
+          <p>Génère des user stories au format agile ("En tant que… je veux… afin de…") prêtes pour votre backlog.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🛠️</div>
+          <div class="card-icon card-icon--gradient-2">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+            </svg>
+          </div>
+          <h3>Génération via prompt texte</h3>
+          <p>Décrivez votre besoin en quelques mots et obtenez instantanément des user stories prêtes à l'emploi.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon card-icon--gradient-3">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+            </svg>
+          </div>
           <h3>Intégration Trello</h3>
           <p>Créez directement les cartes Trello à partir des user stories validées, en un clic.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📊</div>
+          <div class="card-icon card-icon--gradient-1">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+          </div>
           <h3>Rapports automatiques</h3>
-          <p>Générez des rapports par labels, membres d’équipe et statut pour suivre l’avancement.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <h3>Historique des réunions</h3>
-          <p>Conservez un historique consultable de vos transcriptions et des user stories générées.</p>
+          <p>Générez des rapports par labels, membres d'équipe et statut pour suivre l'avancement.</p>
         </div>
       </div>
     </section>
 
-    <!-- POURQUOI INNOVANT -->
-    <section class="section" id="about">
-      <div class="card">
-        <h3>Pourquoi c’est innovant ?</h3>
-        <p>
-          La plupart des outils de gestion de projet interviennent une fois que les tâches sont déjà créées.
-          Agiléo s’attaque à l’étape la plus oubliée : <strong>la discussion</strong>.
-        </p>
-        <ul>
-          <li>Écoute des échanges en temps réel pendant vos réunions.</li>
-          <li>Compréhension du contexte pour éviter les oublis.</li>
-          <li>Génération automatique de user stories exploitables.</li>
-          <li>Intégration directe à Trello pour rester dans votre flux de travail.</li>
-        </ul>
+    <!-- POURQUOI C'EST INNOVANT -->
+    <section class="section innovation-section" id="innovation">
+      <div class="section-label">Pourquoi c'est innovant ?</div>
+      <h2 class="section-title">
+        Plus qu'un outil, <span class="gradient">un membre de l'équipe</span>
+      </h2>
+      <p class="section-intro">
+        <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> ne se contente pas d'organiser vos tâches. Il écoute, comprend et agit.
+        Là où les autres outils se limitent à enregistrer vos réunions ou à produire un simple résumé,
+        <strong><span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> va plus loin&nbsp;: il structure vos échanges et génère des user stories prêtes à être intégrées à Trello.</strong>
+      </p>
+
+      <div class="innovation-grid">
+        <!-- Colonne 1 : Outils classiques -->
+        <article class="innovation-card innovation-card--classic">
+          <h3>Outils classiques</h3>
+          <p>
+            Des outils passifs qui attendent que vous fassiez tout le travail&nbsp;:
+            prise de notes, création des tâches, mise à jour du backlog.
+            Ils organisent, mais ne créent pas.
+          </p>
+          <ul class="innovation-list">
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <!-- icône "moins" -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Saisie manuelle :</strong> perte de temps et risque d'erreurs
+                en recopiant ou réinterprétant les notes après la réunion.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Dépendance à un scribe :</strong> une personne doit se
+                concentrer sur la prise de notes plutôt que sur la discussion.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Résumé uniquement :</strong> les autres outils se contentent
+                d'enregistrer la réunion et de produire un compte-rendu général,
+                sans créer les user stories qui alimentent vraiment le backlog.
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Colonne 2 : Approche Agiléo -->
+        <article class="innovation-card innovation-card--agileo">
+          <header class="innovation-card-header">
+            <h3>L'approche <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span></h3>
+            <span class="badge badge-innovant">Innovant</span>
+          </header>
+          <p>
+            <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> est proactif. Il participe à vos échanges, capte l'essence
+            de la discussion et la transforme automatiquement en tâches
+            structurées et exploitables pour l'équipe.
+          </p>
+          <ul class="innovation-list">
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <!-- icône "plus" -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Écoute active :</strong> libère toute l'équipe de la prise
+                de notes pour se concentrer sur les décisions et la créativité.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Capture de contexte :</strong> l'IA comprend les besoins,
+                contraintes et décisions pour éviter les oublis et les ambiguïtés.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Génération automatique de user stories :</strong>
+                au lieu d'un simple résumé, Agiléo rédige pour vous des US
+                détaillées, prêtes à être intégrées dans Trello.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>De la voix à l'action, instantanément :</strong>
+                réduit le temps entre l'idée exprimée en réunion et la tâche
+                prête à être développée.
+              </div>
+            </li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <!-- VOTE -->
-    <section class="section" id="vote">
-      <div class="card vote-card">
-        <h3>Un concept à développer… avec votre vote</h3>
-        <p>
-          Agiléo est aujourd’hui une <strong>idée de projet étudiant</strong>. Votre vote nous permettra
-          de la prioriser, d’en explorer la faisabilité technique (analyse audio, NLP, intégration Trello)
-          et de construire un premier prototype.
-        </p>
-        <p><strong>Si vous voulez que vos réunions deviennent enfin utiles jusqu’au bout…</strong></p>
-        <p><strong>👉 Votez pour Agiléo !</strong></p>
-        <a href="#" class="btn-primary" style="margin-top:0.5rem;">Je vote pour ce projet</a>
-      </div>
-    </section>
 
     <footer>
-      © 2024 Agiléo Student Project. Tous droits réservés.
+      © 2025 Agiléo Student Project. Tous droits réservés.
     </footer>
   </div>
 </body>
