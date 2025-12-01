@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agiléo – Assistant de gestion de projet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Police plus “landing page” -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #2c2d30;
+      --text: #f4f5fb;
+      --muted: #a3a8b5;
+      --accent-pink: #ef94ca;
+      --accent-mint: #5fecc7;
+      --accent-blue: #79c7ff;
+      --card-bg: rgba(255,255,255,0.02);
+      --card-border: rgba(255,255,255,0.06);
+      --primary: #ff4fa2;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      min-height:100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    /* Layout de base */
+    .page{
+      max-width:1100px;
+      margin:0 auto;
+      padding:1.5rem 1.5rem 3rem;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:2rem;
+    }
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:0.75rem;
+    }
+    .logo{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      object-fit:cover;
+      background:#111;
+    }
+    .brand-name{
+      font-weight:700;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      font-size:0.85rem;
+    }
+    .nav-links{
+      display:flex;
+      gap:1.5rem;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+    .nav-links a{
+      position:relative;
+    }
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0;
+      height:2px;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      transition:width .2s ease;
+    }
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    /* HERO */
+    .hero{
+      text-align:center;
+      padding:3rem 0 3.5rem;
+    }
+    .hero-tag{
+      font-size:0.75rem;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:1rem;
+    }
+    .hero-title{
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      font-weight:700;
+      margin-bottom:1rem;
+    }
+    .hero-title span.gradient{
+      background: linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero-subtitle{
+      max-width:640px;
+      margin:0 auto;
+      font-size:1rem;
+      color:var(--muted);
+    }
+    .hero-actions{
+      margin-top:2rem;
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+      border-radius:999px;
+      padding:0.8rem 1.6rem;
+      font-size:0.95rem;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:0.4rem;
+      border:none;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+      box-shadow:0 12px 25px rgba(0,0,0,0.35);
+    }
+    .btn-primary:hover{
+      transform:translateY(-1px);
+      box-shadow:0 16px 35px rgba(0,0,0,0.45);
+    }
+    .btn-secondary{
+      background:transparent;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.14);
+    }
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.05);
+    }
+
+    /* SECTION TITLES */
+    .section{
+      margin-bottom:2.8rem;
+    }
+    .section-label{
+      font-size:0.8rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      text-align:center;
+      margin-bottom:0.5rem;
+    }
+    .section-title{
+      text-align:center;
+      font-size:1.8rem;
+      margin-bottom:1rem;
+    }
+    .section-title strong{
+      font-weight:700;
+    }
+    .section-title span.gradient{
+      background: linear-gradient(90deg,var(--accent-mint),var(--accent-pink),var(--accent-blue));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .section-intro{
+      text-align:center;
+      max-width:640px;
+      margin:0.5rem auto 2rem;
+      color:var(--muted);
+      font-size:0.98rem;
+    }
+
+    /* CARDS GÉNÉRALES */
+    .card{
+      background: var(--card-bg);
+      border:1px solid var(--card-border);
+      border-radius:18px;
+      padding:1.6rem 1.7rem;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+      border-color:rgba(255,255,255,0.18);
+    }
+    .card h3{
+      margin-bottom:0.6rem;
+      font-size:1.1rem;
+    }
+    .card p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* GRID POUR FEATURES */
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.5rem;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1.5rem;
+    }
+
+    .card-icon{
+      width:34px;
+      height:34px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.1rem;
+      margin-bottom:0.6rem;
+      background:rgba(255,255,255,0.06);
+    }
+
+    /* LISTES */
+    ul{padding-left:1.1rem;margin-top:0.4rem}
+    li{margin-bottom:0.35rem;color:var(--muted);font-size:0.95rem;}
+
+    /* SECTION FOOTER / VOTE */
+    .vote-card{
+      text-align:center;
+    }
+    .vote-card p{
+      margin-bottom:0.8rem;
+    }
+
+    footer{
+      text-align:center;
+      padding:1.5rem 1rem 0.5rem;
+      font-size:0.8rem;
+      color:var(--muted);
+    }
+
+    @media (max-width:900px){
+      .grid-2,
+      .grid-3{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:640px){
+      .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0.75rem;
+      }
+      .nav-links{
+        gap:1rem;
+      }
+      .hero{
+        padding-top:2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAV -->
+    <header class="navbar">
+      <div class="nav-left">
+        <img src="logo.png" alt="Logo Agiléo" class="logo">
+        <div>
+          <div class="brand-name">Agiléo</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#about">À propos</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-tag">Projet étudiant – Concept</div>
+      <h1 class="hero-title">
+        Du <span class="gradient">Chaos</span> à la <span class="gradient">Clarté</span>
+      </h1>
+      <p class="hero-subtitle">
+        Agiléo capture intelligemment les discussions de votre équipe et les
+        transforme en user stories parfaitement conçues. Arrêtez de prendre des notes,
+        commencez à construire.
+      </p>
+      <div class="hero-actions">
+        <a href="#vote" class="btn-primary">👉 Votez pour ce projet</a>
+        <a href="#features" class="btn-secondary">En savoir plus →</a>
+      </div>
+    </section>
+
+    <!-- NOTRE SOLUTION -->
+    <section class="section" id="features">
+      <div class="section-label">Notre solution</div>
+      <h2 class="section-title">L’outil agile qui rédige pour vous</h2>
+      <p class="section-intro">
+        Agiléo est la solution innovante qui transforme vos discussions et idées en
+        user stories claires et exploitables, vous permettant de vous concentrer sur
+        ce qui compte vraiment : le développement de votre projet.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Génération via un prompt</h3>
+          <p>
+            Décrivez simplement votre besoin ou collez vos notes.
+            Notre IA analyse, structure et génère des user stories précises en quelques secondes,
+            prêtes à être intégrées dans votre backlog.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎧</div>
+          <h3>Création à partir d’une réunion</h3>
+          <p>
+            Connectez Agiléo à vos réunions. L’outil écoute, retranscrit
+            et identifie les points clés pour créer automatiquement les user stories correspondantes,
+            sans aucune intervention manuelle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FONCTIONNALITÉS CLÉS / GRID -->
+    <section class="section">
+      <div class="section-label">Fonctionnalités clés</div>
+      <h2 class="section-title">
+        De la discussion au <span class="gradient">backlog</span>
+      </h2>
+      <p class="section-intro">
+        Découvrez comment Agiléo transforme vos échanges en tâches prêtes à être développées.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3>Transcription en temps réel</h3>
+          <p>Capture les discussions pendant vos réunions et les convertit en texte avec une grande précision.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Analyse intelligente</h3>
+          <p>Identifie les décisions, besoins et actions à partir du texte pour proposer des user stories pertinentes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h3>User stories structurées</h3>
+          <p>Génère des user stories au format agile (“En tant que… je veux… afin de…”) prêtes pour votre backlog.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>Intégration Trello</h3>
+          <p>Créez directement les cartes Trello à partir des user stories validées, en un clic.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Rapports automatiques</h3>
+          <p>Générez des rapports par labels, membres d’équipe et statut pour suivre l’avancement.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Historique des réunions</h3>
+          <p>Conservez un historique consultable de vos transcriptions et des user stories générées.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POURQUOI INNOVANT -->
+    <section class="section" id="about">
+      <div class="card">
+        <h3>Pourquoi c’est innovant ?</h3>
+        <p>
+          La plupart des outils de gestion de projet interviennent une fois que les tâches sont déjà créées.
+          Agiléo s’attaque à l’étape la plus oubliée : <strong>la discussion</strong>.
+        </p>
+        <ul>
+          <li>Écoute des échanges en temps réel pendant vos réunions.</li>
+          <li>Compréhension du contexte pour éviter les oublis.</li>
+          <li>Génération automatique de user stories exploitables.</li>
+          <li>Intégration directe à Trello pour rester dans votre flux de travail.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- VOTE -->
+    <section class="section" id="vote">
+      <div class="card vote-card">
+        <h3>Un concept à développer… avec votre vote</h3>
+        <p>
+          Agiléo est aujourd’hui une <strong>idée de projet étudiant</strong>. Votre vote nous permettra
+          de la prioriser, d’en explorer la faisabilité technique (analyse audio, NLP, intégration Trello)
+          et de construire un premier prototype.
+        </p>
+        <p><strong>Si vous voulez que vos réunions deviennent enfin utiles jusqu’au bout…</strong></p>
+        <p><strong>👉 Votez pour Agiléo !</strong></p>
+        <a href="#" class="btn-primary" style="margin-top:0.5rem;">Je vote pour ce projet</a>
+      </div>
+    </section>
+
+    <footer>
+      © 2024 Agiléo Student Project. Tous droits réservés.
+    </footer>
+  </div>
+</body>
+</html>
