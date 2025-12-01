@@ -501,6 +501,170 @@
       background:#000;
     }
 
+        /* SECTION INNOVATION (comparatif) */
+    .innovation-section{
+      margin-top:3rem;
+    }
+
+    .innovation-section .section-label{
+      margin-bottom:0.8rem;
+    }
+
+    .innovation-section .section-title{
+      font-size:2.3rem;
+      margin-bottom:0.6rem;
+    }
+
+    .innovation-section .section-intro{
+      max-width:720px;
+    }
+
+    .innovation-grid{
+      margin-top:2.2rem;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:1.8rem;
+    }
+
+    .innovation-card{
+      position:relative;
+      border-radius:20px;
+      padding:1.8rem 2rem;
+      background:rgba(10,12,20,0.95);
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .innovation-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+      border-color:rgba(255,255,255,0.16);
+    }
+
+    .innovation-card h3{
+      font-size:1.2rem;
+      margin-bottom:0.8rem;
+    }
+
+    .innovation-card p{
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    /* Carte classiques */
+    .innovation-card--classic{
+      background:var(--card-bg);
+    }
+
+    /* Carte Agiléo avec bordure dégradée */
+    .innovation-card--agileo{
+      background:var(--card-bg);
+    }
+    .innovation-card--agileo::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      border-radius:22px;
+      padding:2px;
+      background:linear-gradient(100deg,var(--accent-pink),var(--accent-blue));
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask-composite:exclude;
+      opacity:0.9;
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .innovation-card-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:0.5rem;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0.18rem 0.75rem;
+      border-radius:999px;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+    .badge-innovant{
+      background:linear-gradient(100deg,var(--accent-pink),var(--accent-blue));
+      color:#050710;
+    }
+
+    /* Listes comparatives */
+    .innovation-list{
+      list-style:none;
+      padding:0;
+      margin-top:1.1rem;
+    }
+
+    .innovation-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:0.75rem;
+      margin-bottom:0.7rem;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    .innovation-list strong{
+      color:#f9fafb;
+      font-weight:600;
+    }
+
+    .innovation-bullet{
+      width:22px;
+      height:22px;
+      min-width:22px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,0.06);
+    }
+
+    .innovation-bullet svg{
+      width:12px;
+      height:12px;
+      color:#fff;
+    }
+
+    .innovation-bullet--negative{
+      background:rgba(244,63,94,0.16);
+    }
+
+    .innovation-bullet--negative svg{
+      color:#fb7185;
+    }
+
+    .innovation-bullet--positive{
+      background:rgba(45,212,191,0.14);
+    }
+
+    .innovation-bullet--positive svg{
+      color:#34d399;
+    }
+
+    @media (max-width:900px){
+      .innovation-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
     /* SECTION FOOTER / VOTE */
     .vote-card{
       text-align:center;
@@ -830,22 +994,130 @@
       </div>
     </section>
 
-    <!-- POURQUOI INNOVANT -->
-    <section class="section" id="innovation">
-      <div class="card">
-        <h3>Pourquoi c’est innovant ?</h3>
-        <p>
-          La plupart des outils de gestion de projet interviennent une fois que les tâches sont déjà créées.
-          Agiléo s’attaque à l’étape la plus oubliée : <strong>la discussion</strong>.
-        </p>
-        <ul>
-          <li>Écoute des échanges en temps réel pendant vos réunions.</li>
-          <li>Compréhension du contexte pour éviter les oublis.</li>
-          <li>Génération automatique de user stories exploitables.</li>
-          <li>Intégration directe à Trello pour rester dans votre flux de travail.</li>
-        </ul>
+    <!-- POURQUOI C'EST INNOVANT -->
+    <section class="section innovation-section" id="innovation">
+      <div class="section-label">Pourquoi c'est innovant ?</div>
+      <h2 class="section-title">
+        Plus qu'un outil, <span class="gradient">un membre de l'équipe</span>
+      </h2>
+      <p class="section-intro">
+        <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> ne se contente pas d'organiser vos tâches. Il écoute, comprend et agit.
+        Là où les autres outils se limitent à enregistrer vos réunions ou à produire un simple résumé,
+        <strong><span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> va plus loin&nbsp;: il structure vos échanges et génère des user stories prêtes à être intégrées à Trello.</strong>
+      </p>
+
+      <div class="innovation-grid">
+        <!-- Colonne 1 : Outils classiques -->
+        <article class="innovation-card innovation-card--classic">
+          <h3>Outils classiques</h3>
+          <p>
+            Des outils passifs qui attendent que vous fassiez tout le travail&nbsp;:
+            prise de notes, création des tâches, mise à jour du backlog.
+            Ils organisent, mais ne créent pas.
+          </p>
+          <ul class="innovation-list">
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <!-- icône "moins" -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Saisie manuelle :</strong> perte de temps et risque d'erreurs
+                en recopiant ou réinterprétant les notes après la réunion.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Dépendance à un scribe :</strong> une personne doit se
+                concentrer sur la prise de notes plutôt que sur la discussion.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--negative">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M5 11h14a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Résumé uniquement :</strong> les autres outils se contentent
+                d'enregistrer la réunion et de produire un compte-rendu général,
+                sans créer les user stories qui alimentent vraiment le backlog.
+              </div>
+            </li>
+          </ul>
+        </article>
+
+        <!-- Colonne 2 : Approche Agiléo -->
+        <article class="innovation-card innovation-card--agileo">
+          <header class="innovation-card-header">
+            <h3>L'approche <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span></h3>
+            <span class="badge badge-innovant">Innovant</span>
+          </header>
+          <p>
+            <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> est proactif. Il participe à vos échanges, capte l'essence
+            de la discussion et la transforme automatiquement en tâches
+            structurées et exploitables pour l'équipe.
+          </p>
+          <ul class="innovation-list">
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <!-- icône "plus" -->
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Écoute active :</strong> libère toute l'équipe de la prise
+                de notes pour se concentrer sur les décisions et la créativité.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Capture de contexte :</strong> l'IA comprend les besoins,
+                contraintes et décisions pour éviter les oublis et les ambiguïtés.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>Génération automatique de user stories :</strong>
+                au lieu d'un simple résumé, Agiléo rédige pour vous des US
+                détaillées, prêtes à être intégrées dans Trello.
+              </div>
+            </li>
+            <li>
+              <span class="innovation-bullet innovation-bullet--positive">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M11 5a1 1 0 0 1 2 0v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6H5a1 1 0 0 1 0-2h6V5z"/>
+                </svg>
+              </span>
+              <div>
+                <strong>De la voix à l'action, instantanément :</strong>
+                réduit le temps entre l'idée exprimée en réunion et la tâche
+                prête à être développée.
+              </div>
+            </li>
+          </ul>
+        </article>
       </div>
     </section>
+
 
     <footer>
       © 2025 Agiléo Student Project. Tous droits réservés.
