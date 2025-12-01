@@ -262,7 +262,7 @@
     .mode-card-header{
       display:flex;
       gap:1rem;
-      align-items:center;
+      align-items:flex-start;
       margin-bottom:1rem;
     }
 
@@ -273,57 +273,70 @@
       flex:1;
     }
 
-    .mode-label{
-      display:inline-block;
-      font-size:0.65rem;
-      text-transform:uppercase;
-      letter-spacing:0.12em;
-      padding:0.2rem 0.6rem;
-      border-radius:999px;
-      background:rgba(255,255,255,0.05);
-      color:var(--muted);
-      margin-bottom:0.3rem;
-      width:fit-content;
-    }
-    .mode-label--pink{
-      color:var(--accent-pink);
-      background:rgba(239,148,202,0.12);
-    }
-    .mode-label--blue{
-      color:var(--accent-blue);
-      background:rgba(132,210,228,0.12);
-    }
-
     .mode-card h3{
       margin-bottom:0;
       font-size:1.1rem;
       line-height:1.3;
     }
 
+    .mode-card h3 .mode-number{
+      font-weight:700;
+      display:block;
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      margin-bottom:0.2rem;
+    }
+
+    .mode-number--pink{
+      color:var(--accent-pink);
+    }
+
+    .mode-number--blue{
+      color:var(--accent-blue);
+    }
+
+    .mode-card-icon{
+      width:56px;
+      height:56px;
+      min-width:56px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .mode-card-icon svg{
+      width:28px;
+      height:28px;
+      color:inherit;
+    }
+
+    .mode-card-icon--pink{
+      background:rgba(239,148,202,0.14);
+      color:var(--accent-pink);
+    }
+    .mode-card-icon--blue{
+      background:rgba(132,210,228,0.14);
+      color:var(--accent-blue);
+    }
+
     .card-icon{
-      width:48px;
-      height:48px;
-      min-width:48px;
+      width:34px;
+      height:34px;
       border-radius:999px;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(255,255,255,0.04);
+      font-size:1.1rem;
+      margin-bottom:0.6rem;
+      background:rgba(255,255,255,0.06);
     }
 
     .card-icon svg{
-      width:22px;
-      height:22px;
-      color:inherit; /* la couleur vient des classes ci-dessous */
-    }
-
-    .card-icon--pink{
-      background:rgba(239,148,202,0.14);
-      color:var(--accent-pink);
-    }
-    .card-icon--blue{
-      background:rgba(132,210,228,0.14);
-      color:var(--accent-blue);
+      width:18px;
+      height:18px;
+      color:inherit;
     }
 
     /* Hover coloré par mode */
@@ -637,7 +650,7 @@
         <!-- MODE 1 -->
         <div class="card mode-card mode-card--prompt">
           <div class="mode-card-header">
-            <div class="card-icon card-icon--pink">
+            <div class="mode-card-icon mode-card-icon--pink">
               <!-- Icône document / stylo -->
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="currentColor"
@@ -645,8 +658,10 @@
               </svg>
             </div>
             <div class="mode-card-text">
-              <div class="mode-label mode-label--pink">Mode 1</div>
-              <h3>Génération via un prompt</h3>
+              <h3>
+                <span class="mode-number mode-number--pink">MODE 1</span>
+                Génération via un prompt
+              </h3>
             </div>
           </div>
           <p>
@@ -659,7 +674,7 @@
         <!-- MODE 2 -->
         <div class="card mode-card mode-card--meeting">
           <div class="mode-card-header">
-            <div class="card-icon card-icon--blue">
+            <div class="mode-card-icon mode-card-icon--blue">
               <!-- Icône casque audio -->
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path fill="currentColor"
@@ -667,8 +682,10 @@
               </svg>
             </div>
             <div class="mode-card-text">
-              <div class="mode-label mode-label--blue">Mode 2</div>
-              <h3>Création à partir d'une réunion</h3>
+              <h3>
+                <span class="mode-number mode-number--blue">MODE 2</span>
+                Création à partir d'une réunion
+              </h3>
             </div>
           </div>
           <p>
