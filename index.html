@@ -456,6 +456,30 @@
     ul{padding-left:1.1rem;margin-top:0.4rem}
     li{margin-bottom:0.35rem;color:var(--muted);font-size:0.95rem;}
 
+    /* VIDEO CONTAINER */
+    .video-container{
+      position:relative;
+      width:100%;
+      margin:2.5rem 0;
+      border-radius:18px;
+      overflow:hidden;
+      background:var(--card-bg);
+      border:1px solid var(--card-border);
+      box-shadow:0 18px 45px rgba(0,0,0,0.55);
+      transition:transform .18s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .video-container:hover{
+      transform:translateY(-4px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.7);
+      border-color:rgba(255,255,255,0.18);
+    }
+    .video-container video{
+      width:100%;
+      height:auto;
+      display:block;
+      background:#000;
+    }
+
     /* SECTION FOOTER / VOTE */
     .vote-card{
       text-align:center;
@@ -639,12 +663,20 @@
     <!-- NOTRE SOLUTION -->
     <section class="section" id="features">
       <div class="section-label">Notre solution</div>
-      <h2 class="section-title">L’outil <span class="gradient">agile</span> qui rédige pour vous</h2>
+      <h2 class="section-title">L'outil <span class="gradient">agile</span> qui rédige pour vous</h2>
       <p class="section-intro">
         <span style="background:linear-gradient(80deg,var(--accent-pink),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700">Agiléo</span> est la solution innovante qui transforme vos discussions et idées en
         user stories claires et exploitables, vous permettant de vous concentrer sur
         ce qui compte vraiment&nbsp;: le développement de votre projet.
       </p>
+
+      <!-- VIDEO DEMO -->
+      <div class="video-container">
+        <video controls>
+          <source src="Agileo PM Github.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+      </div>
 
       <div class="grid-2">
         <!-- MODE 1 -->
