@@ -2,8 +2,8 @@
 
 <div align="center">
 
-| [📂 WBS](#wbs) | [🧾 WBS détaillé](#wbs-details) | [🎬 Vidéo](#video) | [👥 Équipe](#equipe) | [🚦 Phases](#phases) |
-|:---:|:---:|:---:|:---:|:---:|
+| [📂 WBS](#wbs) | [🧾 WBS détaillé](#wbs-details) | [🎬 Vidéo](#video) | [🚦 Phases](#phases) |
+|:---:|:---:|:---:|:---:|
 
 <img width="1383" height="700" alt="image" src="https://github.com/user-attachments/assets/5414fd90-e707-451a-b7a7-36bc4aa49449" />
 
@@ -23,9 +23,14 @@
 
 <a id="video"></a>
 # Vidéo
+<div align="center">
 
-<a id="equipe"></a>
-# Équipe
+<video controls width="900">
+    <source src="Agileo%20PM%20Github.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture vidéo. <a href="Agileo%20PM%20Github.mp4">Télécharger la vidéo</a>.
+</video>
+
+</div>
 
 <a id="phases"></a>
 # Phases
