@@ -68,6 +68,7 @@
       gap:1.5rem;
       font-size:0.9rem;
       color:var(--muted);
+      flex-wrap:wrap;
     }
     .nav-links a{
       position:relative;
@@ -526,17 +527,20 @@
       .navbar{
         flex-direction:column;
         align-items:flex-start;
-        gap:0.75rem;
+        gap:1rem;
       }
       .nav-links{
+        width:100%;
+        justify-content:flex-start;
         gap:1rem;
+        font-size:0.85rem;
       }
       .hero{
         padding-top:2.5rem;
       }
     }
 
-        @media (max-width:900px){
+    @media (max-width:900px){
       .grid-3,
       .problem-grid{
         grid-template-columns:1fr 1fr;
@@ -547,10 +551,13 @@
       .navbar{
         flex-direction:column;
         align-items:flex-start;
-        gap:0.75rem;
+        gap:1rem;
       }
       .nav-links{
+        width:100%;
+        justify-content:flex-start;
         gap:1rem;
+        font-size:0.85rem;
       }
       .hero{
         padding-top:2.5rem;
@@ -571,8 +578,9 @@
         <img src="logo.png" alt="Logo Agiléo" class="logo">
       </div>
       <nav class="nav-links">
+        <a href="#solution">À propos</a>
         <a href="#features">Fonctionnalités</a>
-        <a href="#about">À propos</a>
+        <a href="#innovation">Pourquoi nous</a>
       </nav>
     </header>
 
@@ -680,7 +688,7 @@
     </section>
 
     <!-- NOTRE SOLUTION -->
-    <section class="section" id="features">
+    <section class="section" id="solution">
       <div class="section-label">Notre solution</div>
       <h2 class="section-title">L'outil <span class="gradient">agile</span> qui rédige pour vous</h2>
       <p class="section-intro">
@@ -749,7 +757,7 @@
     </section>
 
     <!-- FONCTIONNALITÉS CLÉS / GRID -->
-    <section class="section">
+    <section class="section" id="features">
       <div class="section-label">Fonctionnalités clés</div>
       <h2 class="section-title">
         De la discussion au <span class="gradient">backlog</span>
@@ -823,7 +831,7 @@
     </section>
 
     <!-- POURQUOI INNOVANT -->
-    <section class="section" id="about">
+    <section class="section" id="innovation">
       <div class="card">
         <h3>Pourquoi c’est innovant ?</h3>
         <p>
