@@ -23,14 +23,8 @@
 
 <a id="video"></a>
 # Vidéo
-<div align="center">
-
-<video controls width="900">
-    <source src="Agileo%20PM%20Github.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture vidéo. <a href="Agileo%20PM%20Github.mp4">Télécharger la vidéo</a>.
-</video>
-
-</div>
+|[⏯️ Download Video Here](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/Agileo%20PM%20Github.mp4)|
+|---|
 
 <a id="phases"></a>
 # Phases
