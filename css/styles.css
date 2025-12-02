@@ -68,7 +68,7 @@ a{color:inherit;text-decoration:none}
 .nav-links{
     display:flex;
     gap:1.5rem;
-    font-size:0.9rem;
+    font-size:1rem;
     color:var(--muted);
     flex-wrap:wrap;
 }
@@ -187,7 +187,7 @@ a{color:inherit;text-decoration:none}
     z-index:1;
     max-width:640px;
     margin:0 auto;
-    font-size:16px;
+    font-size:18px;
     color:var(--muted);
 }
 .hero-actions{
@@ -204,7 +204,7 @@ a{color:inherit;text-decoration:none}
 .btn-secondary{
     border-radius:999px;
     padding:0.8rem 1.6rem;
-    font-size:0.95rem;
+    font-size:1.05rem;
     font-weight:600;
     display:inline-flex;
     align-items:center;
@@ -263,7 +263,7 @@ a{color:inherit;text-decoration:none}
     max-width:640px;
     margin:0.5rem auto 2rem;
     color:var(--muted);
-    font-size:0.98rem;
+    font-size:1.1rem;
 }
 
 /* CARDS GÉNÉRALES */
@@ -304,11 +304,11 @@ a{color:inherit;text-decoration:none}
 }
 .card h3{
     margin-bottom:0.6rem;
-    font-size:1.1rem;
+    font-size:1.25rem;
 }
 .card p{
     color:var(--muted);
-    font-size:0.95rem;
+    font-size:1.05rem;
 }
 
     /* Cartes des modes */
