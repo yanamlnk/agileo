@@ -226,9 +226,12 @@ a{color:inherit;text-decoration:none}
     background:transparent;
     color:var(--text);
     border:1px solid rgba(255,255,255,0.14);
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
 }
 .btn-secondary:hover{
     background:rgba(255,255,255,0.05);
+    transform:translateY(-1px);
+    box-shadow:0 16px 35px rgba(0,0,0,0.35);
 }
 
 /* SECTION TITLES */
