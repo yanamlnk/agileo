@@ -12,21 +12,21 @@
 <a id="wbs"></a>
 # WBS
 	
-| [🧠 Mind Map](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_mindmap.pdf) | [📊 Brace Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_chart.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS.md) |
+| [🧠 Mind Map](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/WBS_mindmap.pdf) | [📊 Brace Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/WBS_chart.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/WBS.md) |
 |---|---|---|
 
 
 <a id="wbs-details"></a>
 # WBS détails
-| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/WBS_details.md) |
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/WBS_details.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/WBS_details.md) |
 |---|---|
 
 <a id="video"></a>
 # Vidéo
-|[⏯️ Download Video Here](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/Agileo%20PM%20Github.mp4)|
+|[⏯️ Download Video Here](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/assets/Agileo%20PM%20Github.mp4)|
 |---|
 
 <a id="phases"></a>
 # Phases
-| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/phases.md) |
+| [📊 Chart](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/phases.pdf) | [📰 Markdown](https://github.com/EpitechMscProPromo2027/T-ESP-700-project-90376-NCE_13/blob/main/docs/phases.md) |
 |---|---|
