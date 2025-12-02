@@ -79,4 +79,38 @@ document.addEventListener('DOMContentLoaded', () => {
     section.classList.add('scroll-animate');
     observer.observe(section);
   });
+
+  // Handle smooth scrolling for anchor links with proper offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Immediately show all sections up to and including target
+        let reachedTarget = false;
+        sections.forEach(section => {
+          if (!reachedTarget) {
+            section.classList.add('animate-in');
+          }
+          if (section.id === targetId || section.contains(targetElement)) {
+            reachedTarget = true;
+          }
+        });
+        
+        // Calculate offset (small buffer only)
+        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 30;
+        
+        // Smooth scroll to position
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
 });
