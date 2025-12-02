@@ -58,4 +58,25 @@ document.addEventListener('DOMContentLoaded', () => {
       behavior: 'smooth'
     });
   });
+
+  // Scroll animation for sections
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all major sections
+  const sections = document.querySelectorAll('.hero, .section, .video-container');
+  sections.forEach(section => {
+    section.classList.add('scroll-animate');
+    observer.observe(section);
+  });
 });
