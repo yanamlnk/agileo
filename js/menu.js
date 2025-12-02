@@ -34,4 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
       body.style.overflow = '';
     }
   });
+
+  // Scroll to top button functionality
+  const scrollTopBtn = document.querySelector('.scroll-top-btn');
+  const navbar = document.querySelector('.navbar');
+
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    const navbarHeight = navbar.offsetHeight;
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > navbarHeight) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  // Scroll to top when clicked
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 });
