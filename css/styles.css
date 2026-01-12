@@ -814,3 +814,51 @@ footer{
         grid-template-columns:1fr;
     }
 }
+
+/* RECRUITMENT SECTION */
+.recruitment-text h3{
+    margin-bottom:1.5rem;
+}
+
+.recruitment-text ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.recruitment-text li{
+    margin-bottom:1rem;
+    padding-left:1.2rem;
+    position:relative;
+    font-size:1.15rem;
+}
+
+.recruitment-text li:last-child{
+    margin-bottom:0;
+}
+
+.recruitment-text li span{
+    position:absolute;
+    left:0;
+    color:var(--accent-pink);
+}
+
+.recruitment-qr-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100%;
+    gap:1rem;
+}
+
+.recruitment-qr h3{
+    margin-bottom:0.5rem;
+}
+
+.recruitment-qr img{
+    width:100%;
+    max-width:280px;
+    height:auto;
+    border-radius:12px;
+}
